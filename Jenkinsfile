@@ -22,7 +22,7 @@ node {
       def resourceGroup = 'groupeqt'
       def webAppName = 'webappqt'
       // login Azure
-      withCredentials([usernamePassword(credentialsId: 'azure-cli-2024-06-05-13-51-47', passwordVariable: 'uuB8Q~2yrwim5feFXTh4BeKp8mV~BGWnIYL9tdvz', usernameVariable: 'f2500e8c-6085-4cb1-99e3-1303b2363e61')]) {
+      withCredentials([azureServicePrincipal('azure-service-principal')])
        sh '''
           az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID
           az account set -s $AZURE_SUBSCRIPTION_ID
