@@ -13,7 +13,14 @@ node {
     stage('init') {
       checkout scm
     }
-  
+    stage('Checkout') {
+      steps {
+        git 'tonlien github'
+      }
+    }
+
+
+    
     stage('build') {
       sh 'mvn clean package'
     }
